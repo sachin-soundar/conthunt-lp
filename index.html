@@ -81,19 +81,29 @@
       border-radius: 9999px;
     }
 
-    /* Dark Spot - Occludes the grid under content */
-    .dark-spot {
-      position: absolute;
-      width: 800px;
-      height: 600px;
-      background: radial-gradient(circle,
-          #030303 30%,
-          rgba(3, 3, 3, 0.8) 50%,
-          rgba(3, 3, 3, 0) 80%);
-      border-radius: 50%;
+    /* Dark Zone - Central column that blocks grid torch under content */
+    .dark-zone {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 72rem;
+      /* max-w-6xl */
+      background: #030303;
+      box-shadow: 0 0 100px 100px #030303;
       pointer-events: none;
       z-index: 2;
       /* Above grid-torch (z-1) */
+    }
+
+    /* Ensure content sits above the dark zone */
+    section,
+    footer,
+    header {
+      position: relative;
+      z-index: 10;
     }
 
     /* Grid Torch Effect - Static cyan grid revealed by moving mask */
@@ -268,7 +278,7 @@
 
 <body class="relative min-h-screen">
   <!-- Background Grid & Glows -->
-  <div class="dark-spot top-0 left-1/2 -translate-x-1/2"></div>
+  <div class="dark-zone"></div>
   <div id="grid-torch"></div>
 
   <!-- Navigation -->
