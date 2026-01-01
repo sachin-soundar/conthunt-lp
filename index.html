@@ -81,17 +81,43 @@
       border-radius: 9999px;
     }
 
-    /* Soft Glow Backgrounds */
-    .glow-spot {
+    /* Dark Spot - Occludes the grid under content */
+    .dark-spot {
       position: absolute;
-      width: 600px;
+      width: 800px;
       height: 600px;
       background: radial-gradient(circle,
-          rgba(99, 102, 241, 0.08) 0%,
-          rgba(0, 0, 0, 0) 70%);
+          #030303 30%,
+          rgba(3, 3, 3, 0.8) 50%,
+          rgba(3, 3, 3, 0) 80%);
       border-radius: 50%;
       pointer-events: none;
-      z-index: -1;
+      z-index: 2;
+      /* Above grid-torch (z-1) */
+    }
+
+    /* Grid Torch Effect - Static cyan grid revealed by moving mask */
+    #grid-torch {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+
+      /* The Cyan Grid Pattern (Static, matches .grid-bg) */
+      background-image:
+        linear-gradient(to right, rgba(0, 255, 255, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 255, 255, 0.4) 1px, transparent 1px);
+      background-size: 60px 60px;
+
+      /* The Mask (The Torch Light) */
+      mask-image: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+          black 0%,
+          transparent 50%);
+      -webkit-mask-image: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+          black 0%,
+          transparent 50%);
     }
 
     /* Animations */
@@ -242,8 +268,8 @@
 
 <body class="relative min-h-screen">
   <!-- Background Grid & Glows -->
-  <div class="fixed inset-0 grid-bg pointer-events-none z-0"></div>
-  <div class="glow-spot top-0 left-1/2 -translate-x-1/2"></div>
+  <div class="dark-spot top-0 left-1/2 -translate-x-1/2"></div>
+  <div id="grid-torch"></div>
 
   <!-- Navigation -->
   <!-- Modified Navigation: replaced icon bowl with contHunt logo image -->
@@ -1780,6 +1806,18 @@
           box.style.color = '';
           box.style.borderColor = '';
         });
+      });
+    });
+  </script>
+
+  <!-- Grid Torch Mouse Tracking -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const gridTorch = document.getElementById('grid-torch');
+
+      document.addEventListener('mousemove', (e) => {
+        gridTorch.style.setProperty('--mouse-x', e.clientX + 'px');
+        gridTorch.style.setProperty('--mouse-y', e.clientY + 'px');
       });
     });
   </script>
