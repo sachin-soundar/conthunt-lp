@@ -444,7 +444,8 @@
         <!-- <a href="#" class="hidden md:block text-xs font-bold text-neutral-400 hover:text-white transition-colors">
           Log in
         </a> -->
-        <a href="#waitlist" class="glass-button px-5 py-4 text-xs font-bold">
+        <a href="https://agent.conthunt.app" class="glass-button px-5 py-4 text-xs font-bold"
+          style="margin-right: -15px;">
           <span>LOGIN</span>
           <iconify-icon icon="lucide:arrow-right" class="ml-1" width="12"></iconify-icon>
         </a>
@@ -473,7 +474,7 @@
       </p>
 
       <div class="reveal-element flex flex-col items-center gap-6 w-full max-w-md">
-        <button
+        <button id="view-demo-btn"
           class="font-nav text-xs font-bold text-neutral-500 hover:text-white transition-colors tracking-[0.2em] uppercase">
           View Demo
         </button>
@@ -485,9 +486,9 @@
       </div>
 
       <!-- SIMULATED APP INTERFACE - NOW FULLY FUNCTIONAL -->
-      <div class="reveal-element w-full mt-32 relative perspective-1000">
+      <div id="simulated-app-frame" class="reveal-element w-full mt-32 relative perspective-1000">
         <div
-          class="relative w-full aspect-[16/10] bg-[#0A0A0A] rounded-2xl border border-white/10 shadow-2xl overflow-hidden flex flex-col transform rotate-x-12 transition-transform duration-700 hover:rotate-0 group">
+          class="relative w-full aspect-[3/2] bg-[#0A0A0A] rounded-2xl border border-white/10 shadow-2xl overflow-hidden flex flex-col transform rotate-x-12 transition-transform duration-700 hover:rotate-0 group">
           <!-- App Header -->
           <!-- App Header -->
           <div class="h-12 border-b border-white/5 flex items-center px-4 justify-center bg-[#0F0F0F] relative">
@@ -1234,10 +1235,12 @@
           Stop relying on gut feeling. Get the data-backed tool for modern
           creators.
         </p>
-        <div class="reveal-element flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <input type="email" placeholder="Enter your email"
-            class="w-full sm:w-80 bg-neutral-900 border border-white/10 text-white px-5 py-3 rounded-full outline-none focus:border-indigo-500/50 transition-colors" />
-          <button class="glass-button px-8 py-3 text-[0.95rem] font-semibold font-nav">
+        <div id="newsletter-form-container"
+          class="reveal-element flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
+          <input id="newsletter-email-input" type="email" placeholder="Enter your email"
+            class="w-full sm:w-80 bg-neutral-900 border border-white/10 text-white px-5 py-3 rounded-full outline-none focus:border-indigo-500/50 transition-colors h-[52px]" />
+          <button id="join-newsletter-btn"
+            class="glass-button px-8 py-3 text-[0.95rem] font-semibold font-nav h-[52px]">
             JOIN NEWSLETTER
           </button>
         </div>
@@ -1249,9 +1252,7 @@
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10">
       <div class="col-span-2">
         <div class="flex items-center gap-2 mb-4">
-          <img
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/icon-white-800px-1765781730722.png?width=8000&height=8000&resize=contain"
-            alt="ContHunt Logo" class="w-6 h-6">
+          <img src="public/icon black 800px.png" alt="ContHunt Logo" class="w-6 h-6">
           <span class="font-semibold text-white">ContHunt</span>
         </div>
         <p class="text-neutral-500 max-w-xs mb-6">
@@ -1843,6 +1844,64 @@
         player.stop();
         player.play();
       });
+
+      // View Demo functionality
+      const viewDemoBtn = document.getElementById('view-demo-btn');
+      const simulatedAppFrame = document.getElementById('simulated-app-frame');
+
+      if (viewDemoBtn && simulatedAppFrame) {
+        viewDemoBtn.addEventListener('click', () => {
+          simulatedAppFrame.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+
+      // Hero Get Started Button Redirect
+      const heroWaitlistBtn = document.getElementById('hero-waitlist-btn');
+      if (heroWaitlistBtn) {
+        heroWaitlistBtn.addEventListener('click', () => {
+          window.location.href = 'https://agent.conthunt.app';
+        });
+      }
+
+      // Newsletter Flow
+      const newsletterBtn = document.getElementById('join-newsletter-btn');
+      const newsletterInput = document.getElementById('newsletter-email-input');
+      const newsletterContainer = document.getElementById('newsletter-form-container');
+
+      if (newsletterBtn && newsletterInput && newsletterContainer) {
+        newsletterBtn.addEventListener('click', () => {
+          // If button is already in "Get Started" state, redirect
+          if (newsletterBtn.dataset.state === 'success') {
+            window.location.href = 'https://agent.conthunt.app';
+            return;
+          }
+
+          const email = newsletterInput.value;
+          if (email && email.includes('@')) {
+            // Simulate API call/Success state
+            // Replace input with success message
+            const successMsg = document.createElement('span');
+            successMsg.className = 'text-green-400 font-medium flex items-center h-[52px] px-4';
+            successMsg.textContent = 'Successfully joined!';
+
+            newsletterInput.style.display = 'none';
+            newsletterContainer.insertBefore(successMsg, newsletterBtn);
+
+            // Change button text and state
+            newsletterBtn.textContent = 'GET STARTED';
+            newsletterBtn.dataset.state = 'success';
+
+            // Optional: Clear input (though it's hidden)
+            newsletterInput.value = '';
+          } else {
+            // Basic validation visual feedback
+            newsletterInput.style.borderColor = '#ef4444'; // red-500
+            setTimeout(() => {
+              newsletterInput.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            }, 2000);
+          }
+        });
+      }
     });
   </script>
 </body>
