@@ -489,8 +489,9 @@
         <div
           class="relative w-full aspect-[16/10] bg-[#0A0A0A] rounded-2xl border border-white/10 shadow-2xl overflow-hidden flex flex-col transform rotate-x-12 transition-transform duration-700 hover:rotate-0 group">
           <!-- App Header -->
-          <div class="h-12 border-b border-white/5 flex items-center px-4 justify-between bg-[#0F0F0F]">
-            <div class="flex gap-2">
+          <!-- App Header -->
+          <div class="h-12 border-b border-white/5 flex items-center px-4 justify-center bg-[#0F0F0F] relative">
+            <div class="flex gap-2 absolute left-4">
               <div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
               <div class="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
               <div class="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"></div>
@@ -501,10 +502,10 @@
                 organic skin care
               </span>
             </div>
-            <div class="w-8 h-8 rounded-full bg-neutral-800 overflow-hidden border border-white/10">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="User"
-                class="w-full h-full object-cover" />
-            </div>
+            <button id="lottie-replay-btn"
+              class="absolute right-4 text-xs font-semibold text-neutral-400 hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-md border border-white/10 hidden items-center gap-1">
+              <iconify-icon icon="lucide:rotate-ccw" width="12"></iconify-icon> Replay
+            </button>
           </div>
 
           <!-- App Body -->
@@ -534,330 +535,9 @@
             </div>
 
             <!-- Content Area -->
-            <div class="flex-1 p-6 bg-[#050505] overflow-hidden relative">
-              <!-- Search Tab -->
-              <div class="tab-content active" id="search-tab">
-                <div class="flex justify-between items-end mb-4">
-                  <div>
-                    <h3 class="text-white text-sm font-medium">
-                      Results for "organic skin care"
-                    </h3>
-                    <p class="text-[10px] text-neutral-500">
-                      AI filtered 1,204 posts across TikTok, Reels, Shorts
-                    </p>
-                  </div>
-                  <div class="flex gap-2">
-                    <div class="sort-dropdown relative" id="sort-dropdown">
-                      <button
-                        class="px-2 py-1 rounded bg-white/5 text-[10px] text-neutral-400 border border-white/5 flex items-center gap-1 hover:bg-white/10 transition-colors"
-                        id="sort-btn">
-                        Sort: <span id="sort-value">Velocity</span>
-                        <iconify-icon icon="lucide:chevron-down" width="10"></iconify-icon>
-                      </button>
-                      <div
-                        class="sort-dropdown-menu absolute top-full right-0 mt-1 bg-[#1a1a1a] border border-white/10 rounded-lg overflow-hidden z-50 min-w-[120px] hidden"
-                        id="sort-menu">
-                        <div
-                          class="sort-dropdown-item px-3 py-2 text-[10px] text-neutral-400 hover:bg-white/5 hover:text-white cursor-pointer"
-                          data-sort="Velocity">
-                          Velocity
-                        </div>
-                        <div
-                          class="sort-dropdown-item px-3 py-2 text-[10px] text-neutral-400 hover:bg-white/5 hover:text-white cursor-pointer"
-                          data-sort="Engagement">
-                          Engagement
-                        </div>
-                        <div
-                          class="sort-dropdown-item px-3 py-2 text-[10px] text-neutral-400 hover:bg-white/5 hover:text-white cursor-pointer"
-                          data-sort="Recent">
-                          Recent
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="grid grid-cols-3 gap-3 opacity-50 group-hover:opacity-100 transition-opacity duration-500"
-                  id="cards-container">
-                  <!-- Card 1 - Instagram -->
-                  <div
-                    class="content-card aspect-[9/14] rounded-xl bg-neutral-900 border border-white/5 relative overflow-hidden cursor-pointer hover:border-indigo-500/50 transition-all"
-                    style="font-family: 'Space Grotesk', sans-serif;">
-                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=300&h=500&fit=crop" alt=""
-                      class="absolute inset-0 w-full h-full object-cover" />
-                    <div
-                      class="card-vignette absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300">
-                    </div>
-                    <div class="absolute top-2 left-2 p-1 bg-black/50 rounded-md backdrop-blur-sm">
-                      <iconify-icon icon="simple-icons:instagram" width="12" class="text-pink-400"></iconify-icon>
-                    </div>
-                    <div
-                      class="absolute top-2 right-2 px-1.5 py-0.5 bg-red-500/30 border border-red-500/30 rounded text-[8px] text-red-300 font-medium backdrop-blur-sm">
-                      Viral
-                    </div>
-                    <div class="card-text absolute bottom-0 left-0 right-0 p-2.5 transition-opacity duration-300">
-                      <p class="text-[10px] text-white/90 font-medium truncate">@skincare.daily</p>
-                      <p class="text-[9px] text-white/70 line-clamp-2 mt-0.5">My morning routine changed everything...
-                      </p>
-                      <div class="flex items-center gap-2 mt-1.5 text-[8px] text-white/60">
-                        <span>❤️ 124K</span>
-                        <span>💬 2.3K</span>
-                        <span>🔄 8.1K</span>
-                      </div>
-                    </div>
-                    <button
-                      class="add-to-board-btn absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition-all duration-300 hover:bg-black/70">
-                      <span
-                        class="px-3 py-1.5 bg-indigo-500 text-white text-[10px] font-medium rounded-lg flex items-center gap-1">
-                        <iconify-icon icon="lucide:plus" width="12"></iconify-icon>
-                        Add to Board
-                      </span>
-                    </button>
-                  </div>
-
-                  <!-- Card 2 - TikTok -->
-                  <div
-                    class="content-card aspect-[9/14] rounded-xl bg-neutral-900 border border-white/5 relative overflow-hidden cursor-pointer hover:border-indigo-500/50 transition-all"
-                    style="font-family: 'Space Grotesk', sans-serif;">
-                    <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=500&fit=crop" alt=""
-                      class="absolute inset-0 w-full h-full object-cover" />
-                    <div
-                      class="card-vignette absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300">
-                    </div>
-                    <div class="absolute top-2 left-2 p-1 bg-black/50 rounded-md backdrop-blur-sm">
-                      <iconify-icon icon="simple-icons:tiktok" width="12" class="text-white"></iconify-icon>
-                    </div>
-                    <div
-                      class="absolute top-2 right-2 px-1.5 py-0.5 bg-green-500/30 border border-green-500/30 rounded text-[8px] text-green-300 font-medium backdrop-blur-sm">
-                      Trending
-                    </div>
-                    <div class="card-text absolute bottom-0 left-0 right-0 p-2.5 transition-opacity duration-300">
-                      <p class="text-[10px] text-white/90 font-medium truncate">@beautyhacks</p>
-                      <p class="text-[9px] text-white/70 line-clamp-2 mt-0.5">POV: You finally found the hack</p>
-                      <div class="flex items-center gap-2 mt-1.5 text-[8px] text-white/60">
-                        <span>❤️ 89K</span>
-                        <span>💬 1.1K</span>
-                        <span>🔄 5.2K</span>
-                      </div>
-                    </div>
-                    <button
-                      class="add-to-board-btn absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition-all duration-300 hover:bg-black/70">
-                      <span
-                        class="px-3 py-1.5 bg-indigo-500 text-white text-[10px] font-medium rounded-lg flex items-center gap-1">
-                        <iconify-icon icon="lucide:plus" width="12"></iconify-icon>
-                        Add to Board
-                      </span>
-                    </button>
-                  </div>
-
-                  <!-- Card 3 - YouTube -->
-                  <div
-                    class="content-card aspect-[9/14] rounded-xl bg-neutral-900 border border-white/5 relative overflow-hidden cursor-pointer hover:border-indigo-500/50 transition-all"
-                    style="font-family: 'Space Grotesk', sans-serif;">
-                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=300&h=500&fit=crop" alt=""
-                      class="absolute inset-0 w-full h-full object-cover" />
-                    <div
-                      class="card-vignette absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300">
-                    </div>
-                    <div class="absolute top-2 left-2 p-1 bg-black/50 rounded-md backdrop-blur-sm">
-                      <iconify-icon icon="simple-icons:youtube" width="12" class="text-red-500"></iconify-icon>
-                    </div>
-                    <div
-                      class="absolute top-2 right-2 px-1.5 py-0.5 bg-amber-500/30 border border-amber-500/30 rounded text-[8px] text-amber-300 font-medium backdrop-blur-sm">
-                      Rising
-                    </div>
-                    <div class="card-text absolute bottom-0 left-0 right-0 p-2.5 transition-opacity duration-300">
-                      <p class="text-[10px] text-white/90 font-medium truncate">@glowup.shorts</p>
-                      <p class="text-[9px] text-white/70 line-clamp-2 mt-0.5">Watch this before buying...</p>
-                      <div class="flex items-center gap-2 mt-1.5 text-[8px] text-white/60">
-                        <span>❤️ 45K</span>
-                        <span>💬 890</span>
-                        <span>🔄 3.4K</span>
-                      </div>
-                    </div>
-                    <button
-                      class="add-to-board-btn absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition-all duration-300 hover:bg-black/70">
-                      <span
-                        class="px-3 py-1.5 bg-indigo-500 text-white text-[10px] font-medium rounded-lg flex items-center gap-1">
-                        <iconify-icon icon="lucide:plus" width="12"></iconify-icon>
-                        Add to Board
-                      </span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- AI Overlay Popup - Bottom Right -->
-                <div
-                  class="absolute bottom-4 right-4 w-52 bg-[#111] border border-white/10 rounded-xl p-3 shadow-2xl backdrop-blur-md bg-opacity-90 scale-95 group-hover:scale-100 transition-transform duration-500">
-                  <div class="flex items-center gap-2 mb-2">
-                    <iconify-icon icon="lucide:sparkles" class="text-indigo-400 text-xs"></iconify-icon>
-                    <span class="text-[10px] font-semibold text-white">Insight Agent</span>
-                  </div>
-                  <div class="space-y-1.5">
-                    <div class="h-1.5 w-full bg-white/10 rounded"></div>
-                    <div class="h-1.5 w-5/6 bg-white/10 rounded"></div>
-                    <div class="h-1.5 w-4/6 bg-white/10 rounded"></div>
-                  </div>
-                  <div class="mt-2 pt-2 border-t border-white/5 flex justify-between items-center">
-                    <span class="text-[8px] text-neutral-500">Frame 0:12 detected</span>
-                    <span class="text-[8px] text-indigo-300">Hook 98/100</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Boards Tab -->
-              <div class="tab-content hidden" id="boards-tab">
-                <div class="mb-6">
-                  <h3 class="text-white text-sm font-medium mb-2">Your Boards</h3>
-                  <p class="text-[10px] text-neutral-500">
-                    Organize your content collections
-                  </p>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4">
-                  <div
-                    class="p-4 rounded-xl bg-neutral-900 border border-white/5 hover:border-white/10 transition-all cursor-pointer">
-                    <div class="flex items-center gap-2 mb-3">
-                      <iconify-icon icon="lucide:folder" class="text-indigo-400"></iconify-icon>
-                      <span class="text-xs text-white font-medium">Beauty Trends</span>
-                    </div>
-                    <div class="text-[10px] text-neutral-500">24 items</div>
-                  </div>
-
-                  <div
-                    class="p-4 rounded-xl bg-neutral-900 border border-white/5 hover:border-white/10 transition-all cursor-pointer">
-                    <div class="flex items-center gap-2 mb-3">
-                      <iconify-icon icon="lucide:folder" class="text-purple-400"></iconify-icon>
-                      <span class="text-xs text-white font-medium">Viral Hooks</span>
-                    </div>
-                    <div class="text-[10px] text-neutral-500">12 items</div>
-                  </div>
-
-                  <div
-                    class="p-4 rounded-xl bg-neutral-900 border border-white/5 hover:border-white/10 transition-all cursor-pointer">
-                    <div class="flex items-center gap-2 mb-3">
-                      <iconify-icon icon="lucide:folder" class="text-green-400"></iconify-icon>
-                      <span class="text-xs text-white font-medium">Competitors</span>
-                    </div>
-                    <div class="text-[10px] text-neutral-500">8 items</div>
-                  </div>
-
-                  <div
-                    class="p-4 rounded-xl bg-neutral-900 border border-white/5 hover:border-white/10 transition-all cursor-pointer flex items-center justify-center">
-                    <div class="text-center">
-                      <iconify-icon icon="lucide:plus" class="text-neutral-600 text-xl mb-2"></iconify-icon>
-                      <span class="text-[10px] text-neutral-600">New Board</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Settings Tab -->
-              <div class="tab-content hidden" id="settings-tab">
-                <div class="mb-6">
-                  <h3 class="text-white text-sm font-medium mb-2">Settings</h3>
-                  <p class="text-[10px] text-neutral-500">
-                    Configure your preferences
-                  </p>
-                </div>
-
-                <div class="space-y-4">
-                  <div class="p-4 rounded-xl bg-neutral-900 border border-white/5">
-                    <div class="flex justify-between items-center mb-2">
-                      <span class="text-xs text-white">Auto-save searches</span>
-                      <input type="checkbox" class="toggle-switch" checked />
-                    </div>
-                    <p class="text-[10px] text-neutral-500">
-                      Automatically save your search history
-                    </p>
-                  </div>
-
-                  <div class="p-4 rounded-xl bg-neutral-900 border border-white/5">
-                    <div class="flex justify-between items-center mb-2">
-                      <span class="text-xs text-white">Email notifications</span>
-                      <input type="checkbox" class="toggle-switch" />
-                    </div>
-                    <p class="text-[10px] text-neutral-500">
-                      Get notified about trending content
-                    </p>
-                  </div>
-
-                  <div class="p-4 rounded-xl bg-neutral-900 border border-white/5">
-                    <div class="mb-2">
-                      <span class="text-xs text-white">Default platforms</span>
-                    </div>
-                    <div class="flex gap-2 mt-2">
-                      <span
-                        class="px-2 py-1 rounded bg-indigo-500/20 text-[10px] text-indigo-300 border border-indigo-500/30 cursor-pointer">TikTok</span>
-                      <span
-                        class="px-2 py-1 rounded bg-indigo-500/20 text-[10px] text-indigo-300 border border-indigo-500/30 cursor-pointer">Reels</span>
-                      <span
-                        class="px-2 py-1 rounded bg-white/5 text-[10px] text-neutral-500 border border-white/5 cursor-pointer">YouTube</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- AI Tab -->
-              <div class="tab-content hidden" id="ai-tab">
-                <div class="mb-6">
-                  <h3 class="text-white text-sm font-medium mb-2">AI Assistant</h3>
-                  <p class="text-[10px] text-neutral-500">
-                    Ask questions about your content
-                  </p>
-                </div>
-
-                <div class="space-y-3 mb-4">
-                  <div class="p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/20 max-w-[80%]">
-                    <div class="flex items-center gap-2 mb-1">
-                      <iconify-icon icon="lucide:sparkles" class="text-indigo-400 text-xs"></iconify-icon>
-                      <span class="text-[9px] text-indigo-300 font-semibold">AI</span>
-                    </div>
-                    <p class="text-[11px] text-white">
-                      I analyzed "organic skin care" trends. The hook patterns show 3-second rule compliance with 89%
-                      retention rate.
-                    </p>
-                  </div>
-
-                  <div class="p-3 rounded-lg bg-neutral-900 border border-white/5 max-w-[80%] ml-auto">
-                    <p class="text-[11px] text-neutral-300 text-right">
-                      Show me the top performing hooks
-                    </p>
-                  </div>
-
-                  <div class="p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/20 max-w-[80%]">
-                    <div class="flex items-center gap-2 mb-1">
-                      <iconify-icon icon="lucide:sparkles" class="text-indigo-400 text-xs"></iconify-icon>
-                      <span class="text-[9px] text-indigo-300 font-semibold">AI</span>
-                    </div>
-                    <p class="text-[11px] text-white mb-2">
-                      Top 3 hooks detected:
-                    </p>
-                    <div class="space-y-1">
-                      <div class="text-[10px] text-neutral-300">
-                        1. "Stop using [X]..."
-                      </div>
-                      <div class="text-[10px] text-neutral-300">
-                        2. "This changed everything..."
-                      </div>
-                      <div class="text-[10px] text-neutral-300">
-                        3. "Nobody talks about..."
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="absolute bottom-6 left-6 right-6">
-                  <div class="flex gap-2">
-                    <input type="text" placeholder="Ask AI anything..."
-                      class="flex-1 bg-neutral-900 border border-white/5 text-white px-3 py-2 rounded-lg text-[11px] outline-none focus:border-indigo-500/50 transition-colors" />
-                    <button
-                      class="px-4 py-2 rounded-lg bg-indigo-500 text-white text-[11px] font-medium hover:bg-indigo-600 transition-colors">
-                      Send
-                    </button>
-                  </div>
-                </div>
-              </div>
+            <div class="flex-1 bg-[#050505] overflow-hidden relative flex items-center justify-center">
+              <lottie-player id="main-lottie" src="public/main_lottie.json" background="transparent" speed="1"
+                style="width: 100%; height: 100%;" preserveAspectRatio="xMidYMid slice" mode="normal"></lottie-player>
             </div>
           </div>
         </div>
@@ -1221,7 +901,7 @@
           <!-- Image 1 Container -->
           <div class="step-image min-h-screen flex items-center justify-center p-6" data-step="1">
             <div
-              class="h-80 w-full bg-[#FFFFFF] border border-black/5 rounded-2xl flex items-center justify-center relative overflow-hidden">
+              class="h-80 w-full bg-[#080808] border border-white/5 rounded-2xl flex items-center justify-center relative overflow-hidden">
               <!-- Lottie Animation for Search -->
               <lottie-player src="public/Scene-1.json" background="transparent" speed="1"
                 style="width: 100%; height: 100%;" loop autoplay preserveAspectRatio="xMidYMid slice"></lottie-player>
@@ -1784,6 +1464,7 @@
       const sidebarBtns = document.querySelectorAll('.sidebar-btn');
       const tabContents = document.querySelectorAll('.tab-content');
 
+      /*
       sidebarBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           const targetTab = btn.getAttribute('data-tab');
@@ -1808,6 +1489,7 @@
           });
         });
       });
+      */
     });
   </script>
 
@@ -2118,6 +1800,51 @@
     });
   </script>
   <script src="public/step2-animation.js"></script>
+
+  <!-- Main Lottie Control Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const player = document.getElementById('main-lottie');
+      const replayBtn = document.getElementById('lottie-replay-btn');
+      let hasPlayed = false;
+
+      // Intersection Observer for playing only when visible
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasPlayed) {
+            // Check if player is ready
+            if (player.play) {
+              player.play();
+              hasPlayed = true;
+            } else {
+              player.addEventListener('ready', () => {
+                if (!hasPlayed) {
+                  player.play();
+                  hasPlayed = true;
+                }
+              });
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(player);
+
+      // Show Replay button when animation completes
+      player.addEventListener('complete', () => {
+        replayBtn.classList.remove('hidden');
+        replayBtn.classList.add('flex');
+      });
+
+      // Replay functionality
+      replayBtn.addEventListener('click', () => {
+        replayBtn.classList.add('hidden');
+        replayBtn.classList.remove('flex');
+        player.stop();
+        player.play();
+      });
+    });
+  </script>
 </body>
 
 </html>
