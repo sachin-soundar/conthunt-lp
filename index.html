@@ -1179,27 +1179,18 @@
             Lock in Beta pricing today. Prices increase after V1.0 launch.
           </p>
           <!-- Billing Toggle -->
-          <!-- Billing Toggle -->
-          <div class="flex justify-center mb-10 relative z-10">
-            <div
-              class="bg-[#050505] border border-white/10 p-1.5 rounded-full inline-flex relative backdrop-blur-md shadow-2xl shadow-black/50">
-              <!-- Animated Background -->
-              <div id="selection-pill"
-                class="absolute top-1.5 left-1.5 bottom-1.5 w-[calc(50%-6px)] bg-[#1A1A1A] rounded-full border border-white/5 shadow-inner transition-transform duration-300 ease-out z-0 translate-x-0">
-              </div>
-
-              <button id="btn-monthly"
-                class="w-36 py-2.5 rounded-full text-sm font-medium text-white relative z-10 transition-colors duration-300 focus:outline-none">
-                Monthly
-              </button>
-              <button id="btn-yearly"
-                class="w-36 py-2.5 rounded-full text-sm font-medium text-neutral-400 relative z-10 transition-colors duration-300 flex items-center justify-center gap-2 focus:outline-none">
-                Annual
-                <span
-                  class="text-[9px] font-bold bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full uppercase tracking-wider border border-indigo-500/10">1
-                  Mo Free</span>
-              </button>
-            </div>
+          <div class="flex items-center justify-center gap-3 mb-10">
+            <span id="annual-label" class="text-sm font-medium text-neutral-400 transition-colors">Paid Annually</span>
+            <button id="annual-toggle"
+              class="relative h-8 w-14 rounded-full border border-white/10 bg-[#050505] transition-colors focus:outline-none ring-1 ring-white/5 active:scale-95 duration-200"
+              aria-pressed="false">
+              <span class="sr-only">Toggle annual billing</span>
+              <span id="annual-toggle-knob"
+                class="pointer-events-none absolute left-1 top-1 h-6 w-6 transform rounded-full bg-gradient-to-b from-white to-neutral-200 shadow-sm transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"></span>
+            </button>
+            <span
+              class="text-[10px] font-bold bg-indigo-500/10 text-indigo-400 px-2.5 py-1 rounded-full border border-indigo-500/20 tracking-wide uppercase">Save
+              up to 20%</span>
           </div>
         </div>
 
@@ -1248,9 +1239,18 @@
             </div>
             <div class="mb-4">
               <span class="text-sm font-medium text-neutral-400">Creator</span>
-              <div class="text-4xl font-medium text-white mt-2" id="creator-price" data-monthly="29" data-yearly="319">
-                $29
-                <span class="text-base text-neutral-500 font-normal" id="creator-period">/mo</span>
+              <div class="flex items-end gap-1 mt-2">
+                <span class="text-4xl font-medium text-white">$</span>
+                <div class="text-4xl font-medium text-white price-value" id="creator-price" data-monthly="29"
+                  data-yearly="25">
+                  29
+                </div>
+                <div class="flex flex-col mb-1 text-left">
+                  <span class="text-base text-neutral-500 font-normal">/mo</span>
+                  <span
+                    class="text-[10px] text-neutral-600 font-medium uppercase tracking-wide billing-period-text">Billed
+                    Monthly</span>
+                </div>
               </div>
             </div>
             <ul class="space-y-3 mb-8 flex-1">
@@ -1293,9 +1293,18 @@
             </div>
             <div class="mb-4">
               <span class="text-sm font-medium text-[#CECECE]">Pro Research</span>
-              <div class="text-4xl font-medium text-white mt-2" id="pro-price" data-monthly="79" data-yearly="869">
-                $79
-                <span class="text-base text-neutral-500 font-normal" id="pro-period">/mo</span>
+              <div class="flex items-end gap-1 mt-2">
+                <span class="text-4xl font-medium text-white">$</span>
+                <div class="text-4xl font-medium text-white price-value" id="pro-price" data-monthly="79"
+                  data-yearly="63">
+                  79
+                </div>
+                <div class="flex flex-col mb-1 text-left">
+                  <span class="text-base text-neutral-500 font-normal">/mo</span>
+                  <span
+                    class="text-[10px] text-neutral-600 font-medium uppercase tracking-wide billing-period-text">Billed
+                    Monthly</span>
+                </div>
               </div>
             </div>
             <ul class="space-y-3 mb-8 flex-1">
@@ -1507,50 +1516,76 @@
   <!-- Billing Toggle Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const btnMonthly = document.getElementById('btn-monthly');
-      const btnYearly = document.getElementById('btn-yearly');
-      const selectionPill = document.getElementById('selection-pill');
+      const toggleBtn = document.getElementById('annual-toggle');
+      const toggleKnob = document.getElementById('annual-toggle-knob');
+      const annualLabel = document.getElementById('annual-label');
 
-      const creatorPrice = document.getElementById('creator-price');
-      const proPrice = document.getElementById('pro-price');
+      const creatorPriceEl = document.getElementById('creator-price');
+      const proPriceEl = document.getElementById('pro-price');
+      const billingTexts = document.querySelectorAll('.billing-period-text');
 
-      let isYearly = false;
+      let isAnnual = false;
 
-      function updateState(yearly) {
-        isYearly = yearly;
+      // Smooth counting animation for numbers
+      function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
 
-        // Update pill position
-        if (isYearly) {
-          selectionPill.classList.add('translate-x-full');
+          // Easing function: easeOutExpo
+          const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
 
-          // Update text styles
-          btnYearly.classList.replace('text-neutral-400', 'text-white');
-          btnMonthly.classList.replace('text-white', 'text-neutral-400');
-        } else {
-          selectionPill.classList.remove('translate-x-full');
-
-          // Update text styles
-          btnMonthly.classList.replace('text-neutral-400', 'text-white');
-          btnYearly.classList.replace('text-white', 'text-neutral-400');
-        }
-
-        // Update prices with animation
-        const creatorMonthly = creatorPrice.dataset.monthly;
-        const creatorYearly = creatorPrice.dataset.yearly;
-        const proMonthly = proPrice.dataset.monthly;
-        const proYearly = proPrice.dataset.yearly;
-
-        if (isYearly) {
-          creatorPrice.innerHTML = `$${creatorYearly}<span class="text-base text-neutral-500 font-normal" id="creator-period">/yr</span>`;
-          proPrice.innerHTML = `$${proYearly}<span class="text-base text-neutral-500 font-normal" id="pro-period">/yr</span>`;
-        } else {
-          creatorPrice.innerHTML = `$${creatorMonthly}<span class="text-base text-neutral-500 font-normal" id="creator-period">/mo</span>`;
-          proPrice.innerHTML = `$${proMonthly}<span class="text-base text-neutral-500 font-normal" id="pro-period">/mo</span>`;
-        }
+          const currentVal = Math.floor(easeProgress * (end - start) + start);
+          obj.textContent = currentVal;
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            obj.textContent = end; // Ensure final value is exact
+          }
+        };
+        window.requestAnimationFrame(step);
       }
 
-      btnMonthly.addEventListener('click', () => updateState(false));
-      btnYearly.addEventListener('click', () => updateState(true));
+      function updateState() {
+        // 1. Toggle Button UI
+        if (isAnnual) {
+          toggleBtn.setAttribute('aria-pressed', 'true');
+          // Move knob to right: calc(100% - 1.5rem - 4px) -> approx 24px/28px
+          // Since w-14 (3.5rem=56px) and knob w-6 (1.5rem=24px), left-1 (4px).
+          // Max translation = 56 - 24 - 8 = 24px.
+          toggleKnob.style.transform = 'translateX(24px)';
+
+          // Make label active
+          annualLabel.classList.replace('text-neutral-400', 'text-white');
+        } else {
+          toggleBtn.setAttribute('aria-pressed', 'false');
+          toggleKnob.style.transform = 'translateX(0)';
+
+          annualLabel.classList.replace('text-white', 'text-neutral-400');
+        }
+
+        // 2. Update Billing Subtext
+        billingTexts.forEach(el => {
+          el.textContent = isAnnual ? 'Billed Annually' : 'Billed Monthly';
+        });
+
+        // 3. Update Prices with Animation
+        [creatorPriceEl, proPriceEl].forEach(el => {
+          const startVal = parseInt(el.textContent);
+          const endVal = isAnnual ? parseInt(el.dataset.yearly) : parseInt(el.dataset.monthly);
+
+          // Only animate if value changes
+          if (startVal !== endVal) {
+            animateValue(el, startVal, endVal, 500);
+          }
+        });
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        isAnnual = !isAnnual;
+        updateState();
+      });
     });
   </script>
 
