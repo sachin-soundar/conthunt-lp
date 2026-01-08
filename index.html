@@ -1169,134 +1169,175 @@
     </section>
 
     <!-- PRICING & GUARANTEE -->
-    <section id="pricing" class="max-w-6xl mx-auto px-6 mb-32 scroll-mt-32">
-      <div class="text-center mb-16 reveal-element">
-        <h2 class="text-3xl font-medium text-white mb-4">
-          Transparent Pricing
-        </h2>
-        <p class="text-neutral-400">
-          Lock in Beta pricing today. Prices increase after V1.0 launch.
-        </p>
-      </div>
+    <section id="pricing" class="min-h-screen flex flex-col justify-center py-24 scroll-mt-16">
+      <div class="max-w-6xl mx-auto px-6 w-full">
+        <div class="text-center mb-16 reveal-element">
+          <h2 class="text-3xl font-medium text-white mb-4">
+            Transparent Pricing
+          </h2>
+          <p class="text-neutral-400 mb-8">
+            Lock in Beta pricing today. Prices increase after V1.0 launch.
+          </p>
+          <!-- Billing Toggle -->
+          <!-- Billing Toggle -->
+          <div class="flex justify-center mb-10 relative z-10">
+            <div
+              class="bg-[#050505] border border-white/10 p-1.5 rounded-full inline-flex relative backdrop-blur-md shadow-2xl shadow-black/50">
+              <!-- Animated Background -->
+              <div id="selection-pill"
+                class="absolute top-1.5 left-1.5 bottom-1.5 w-[calc(50%-6px)] bg-[#1A1A1A] rounded-full border border-white/5 shadow-inner transition-transform duration-300 ease-out z-0 translate-x-0">
+              </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        <!-- Tier 1: Free -->
-        <div class="reveal-element p-6 rounded-3xl border border-white/5 bg-[#070707] flex flex-col">
-          <div class="mb-4">
-            <span class="text-sm font-medium text-neutral-400">Free</span>
-            <div class="text-4xl font-medium text-white mt-2">
-              $0
-              <span class="text-base text-neutral-500 font-normal">/mo</span>
+              <button id="btn-monthly"
+                class="w-36 py-2.5 rounded-full text-sm font-medium text-white relative z-10 transition-colors duration-300 focus:outline-none">
+                Monthly
+              </button>
+              <button id="btn-yearly"
+                class="w-36 py-2.5 rounded-full text-sm font-medium text-neutral-400 relative z-10 transition-colors duration-300 flex items-center justify-center gap-2 focus:outline-none">
+                Annual
+                <span
+                  class="text-[9px] font-bold bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full uppercase tracking-wider border border-indigo-500/10">1
+                  Mo Free</span>
+              </button>
             </div>
           </div>
-          <ul class="space-y-3 mb-8 flex-1">
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
-              <span>2 Platforms (IG, TikTok)</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
-              <span>10 Searches / mo</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
-              <span>Gemini Flash Model</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
-              <span>1 AI Board</span>
-            </li>
-          </ul>
-          <button class="glass-button w-full py-3 text-[0.95rem] font-medium font-nav">
-            GET STARTED
-          </button>
         </div>
 
-        <!-- Tier 2: Creator -->
-        <div class="reveal-element p-6 rounded-3xl border border-white/5 bg-[#070707] flex flex-col">
-          <div class="mb-4">
-            <span class="text-sm font-medium text-neutral-400">Creator</span>
-            <div class="text-4xl font-medium text-white mt-2">
-              $29
-              <span class="text-base text-neutral-500 font-normal">/mo</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <!-- Tier 1: Free -->
+          <div class="reveal-element p-6 rounded-3xl border border-white/5 bg-[#070707] flex flex-col">
+            <div class="mb-4">
+              <span class="text-sm font-medium text-neutral-400">Free</span>
+              <div class="text-4xl font-medium text-white mt-2">
+                $0
+                <span class="text-base text-neutral-500 font-normal">/mo</span>
+              </div>
             </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
+                <span>2 Platforms (IG, TikTok)</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
+                <span>10 Searches / mo</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
+                <span>10 AI Analyses / mo</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
+                <span>Gemini Flash Model</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
+                <span>1 AI Board</span>
+              </li>
+            </ul>
+            <button class="glass-button w-full py-3 text-[0.95rem] font-medium font-nav">
+              GET STARTED
+            </button>
           </div>
-          <ul class="space-y-3 mb-8 flex-1">
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
-              <span>All Platforms</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
-              <span>50 AI Analyses / mo</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
-              <span>Model Selector</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
-              <span>Basic Trends</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
-              <span>5 AI Boards</span>
-            </li>
-          </ul>
-          <button class="glass-button w-full py-3 text-[0.95rem] font-medium font-nav">
-            CHOOSE PLAN
-          </button>
-        </div>
 
-        <!-- Tier 3: Pro Research -->
-        <div
-          class="reveal-element p-6 rounded-3xl border border-white/10 bg-[rgba(26,26,26,0.89)] relative flex flex-col shadow-2xl shadow-indigo-500/10">
+          <!-- Tier 2: Creator -->
+          <div class="reveal-element p-6 rounded-3xl border border-white/5 bg-[#070707] relative flex flex-col">
+            <div
+              class="absolute top-0 right-0 bg-[#CECECE] text-black text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-2xl uppercase tracking-wide">
+              Popular
+            </div>
+            <div class="mb-4">
+              <span class="text-sm font-medium text-neutral-400">Creator</span>
+              <div class="text-4xl font-medium text-white mt-2" id="creator-price" data-monthly="29" data-yearly="319">
+                $29
+                <span class="text-base text-neutral-500 font-normal" id="creator-period">/mo</span>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
+                <span>All Platforms</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
+                <span>50 Searches / mo</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
+                <span>50 AI Analyses / mo</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
+                <span>Model Selector</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
+                <span>Basic Trends</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-neutral-500 shrink-0"></iconify-icon>
+                <span>5 AI Boards</span>
+              </li>
+            </ul>
+            <button class="glass-button w-full py-3 text-[0.95rem] font-medium font-nav">
+              CHOOSE PLAN
+            </button>
+          </div>
+
+          <!-- Tier 3: Pro Research -->
           <div
-            class="absolute top-0 right-0 bg-[#CECECE] text-black text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-2xl uppercase tracking-wide">
-            Most Popular
-          </div>
-          <div class="mb-4">
-            <span class="text-sm font-medium text-[#CECECE]">Pro Research</span>
-            <div class="text-4xl font-medium text-white mt-2">
-              $79
-              <span class="text-base text-neutral-500 font-normal">/mo</span>
+            class="reveal-element p-6 rounded-3xl border border-white/10 bg-[rgba(26,26,26,0.89)] relative flex flex-col shadow-2xl shadow-indigo-500/10">
+            <div
+              class="absolute top-0 right-0 bg-[#CECECE] text-black text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-2xl uppercase tracking-wide">
+              Full Experience
             </div>
+            <div class="mb-4">
+              <span class="text-sm font-medium text-[#CECECE]">Pro Research</span>
+              <div class="text-4xl font-medium text-white mt-2" id="pro-price" data-monthly="79" data-yearly="869">
+                $79
+                <span class="text-base text-neutral-500 font-normal" id="pro-period">/mo</span>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-[#CECECE] shrink-0"></iconify-icon>
+                <span>All Platforms + Upcoming Platforms</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-[#CECECE] shrink-0"></iconify-icon>
+                <span>Unlimited Searches</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-[#CECECE] shrink-0"></iconify-icon>
+                <span>Unlimited Analyses</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-[#CECECE] shrink-0"></iconify-icon>
+                <span>Model Selector</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-[#CECECE] shrink-0"></iconify-icon>
+                <span>Deep Search (new)</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-300">
+                <iconify-icon icon="lucide:check" class="text-[#CECECE] shrink-0"></iconify-icon>
+                <span>25 AI Boards</span>
+              </li>
+            </ul>
+            <button class="glass-button w-full py-3 text-[0.95rem] font-medium font-nav">
+              CHOOSE PLAN
+            </button>
           </div>
-          <ul class="space-y-3 mb-8 flex-1">
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-[#CECECE] shrink-0"></iconify-icon>
-              <span>All Platforms + Beta Access</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-[#CECECE] shrink-0"></iconify-icon>
-              <span>Unlimited Searches</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-[#CECECE] shrink-0"></iconify-icon>
-              <span>Model Selector</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-[#CECECE] shrink-0"></iconify-icon>
-              <span>Deep Search (new)</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm text-neutral-300">
-              <iconify-icon icon="lucide:check" class="text-[#CECECE] shrink-0"></iconify-icon>
-              <span>25 AI Boards</span>
-            </li>
-          </ul>
-          <button class="glass-button w-full py-3 text-[0.95rem] font-medium font-nav">
-            CHOOSE PLAN
-          </button>
         </div>
-      </div>
 
-      <div class="reveal-element mt-12 text-center">
-        <p class="text-xs text-neutral-500 uppercase tracking-widest mb-2">
-          Risk Reversal
-        </p>
-        <p class="text-sm text-neutral-400">
-          14 day money back guarantee. T&C applied.
-        </p>
+        <div class="reveal-element mt-12 text-center">
+          <p class="text-xs text-neutral-500 uppercase tracking-widest mb-2">
+            Risk Reversal
+          </p>
+          <p class="text-sm text-neutral-400">
+            14 day money back guarantee. T&C applied.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -1461,6 +1502,56 @@
     });
 
 
+  </script>
+
+  <!-- Billing Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btnMonthly = document.getElementById('btn-monthly');
+      const btnYearly = document.getElementById('btn-yearly');
+      const selectionPill = document.getElementById('selection-pill');
+
+      const creatorPrice = document.getElementById('creator-price');
+      const proPrice = document.getElementById('pro-price');
+
+      let isYearly = false;
+
+      function updateState(yearly) {
+        isYearly = yearly;
+
+        // Update pill position
+        if (isYearly) {
+          selectionPill.classList.add('translate-x-full');
+
+          // Update text styles
+          btnYearly.classList.replace('text-neutral-400', 'text-white');
+          btnMonthly.classList.replace('text-white', 'text-neutral-400');
+        } else {
+          selectionPill.classList.remove('translate-x-full');
+
+          // Update text styles
+          btnMonthly.classList.replace('text-neutral-400', 'text-white');
+          btnYearly.classList.replace('text-white', 'text-neutral-400');
+        }
+
+        // Update prices with animation
+        const creatorMonthly = creatorPrice.dataset.monthly;
+        const creatorYearly = creatorPrice.dataset.yearly;
+        const proMonthly = proPrice.dataset.monthly;
+        const proYearly = proPrice.dataset.yearly;
+
+        if (isYearly) {
+          creatorPrice.innerHTML = `$${creatorYearly}<span class="text-base text-neutral-500 font-normal" id="creator-period">/yr</span>`;
+          proPrice.innerHTML = `$${proYearly}<span class="text-base text-neutral-500 font-normal" id="pro-period">/yr</span>`;
+        } else {
+          creatorPrice.innerHTML = `$${creatorMonthly}<span class="text-base text-neutral-500 font-normal" id="creator-period">/mo</span>`;
+          proPrice.innerHTML = `$${proMonthly}<span class="text-base text-neutral-500 font-normal" id="pro-period">/mo</span>`;
+        }
+      }
+
+      btnMonthly.addEventListener('click', () => updateState(false));
+      btnYearly.addEventListener('click', () => updateState(true));
+    });
   </script>
 
   <!-- Background Animation (Optional: Subtle particle drift could be added here via Canvas, keeping it pure CSS/HTML for strict adherence to request) -->
