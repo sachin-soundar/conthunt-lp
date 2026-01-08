@@ -460,38 +460,40 @@
 
 
       <h1
-        class="reveal-element md:text-7xl text-5xl font-semibold tracking-tight text-white mb-7 leading-[1.1] max-w-4xl">
+        class="reveal-element md:text-[5.5rem] text-[10vw] font-semibold tracking-tight text-white mb-7 leading-[1.1] max-w-4xl">
         Third eye for your
-        <br class="hidden md:block" />
+        <br />
         <span id="changing-word"
-          class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600"
-          style="line-height: 1.2; padding-bottom: 0.1em;">marketing strategy</span>
+          class="inline-block text-[13vw] md:text-[6rem] text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600"
+          style="line-height: 1.2; padding-bottom: 0.1em;">marketing</span>
       </h1>
 
-      <p class="reveal-element text-xl md:text-2xl text-neutral-400 font-light max-w-2xl mb-12 leading-relaxed">
+      <p
+        class="reveal-element text-[1.2rem] leading-[1.4] md:text-2xl text-neutral-400 font-light max-w-[18rem] md:max-w-2xl mb-12">
         Aggregates viral videos across all social media platforms, analyzes every frame and uncovers niche gold before
         it trends.
       </p>
 
       <div class="reveal-element flex flex-col items-center gap-6 w-full max-w-md">
         <button id="view-demo-btn"
-          class="font-nav text-xs font-bold text-neutral-500 hover:text-white transition-colors tracking-[0.2em] uppercase">
+          class="hidden md:block font-nav text-xs font-bold text-neutral-500 hover:text-white transition-colors tracking-[0.2em] uppercase">
           View Demo
         </button>
         <button id="hero-waitlist-btn"
-          class="glass-button glass-button-interactive w-full sm:w-auto px-10 py-[1.3rem] font-nav text-[0.95rem] font-[900] whitespace-nowrap gap-2">
+          class="glass-button glass-button-interactive w-auto px-8 md:px-10 py-[1.3rem] font-nav text-[0.95rem] font-[900] whitespace-nowrap gap-2">
           GET STARTED
           <iconify-icon icon="lucide:sparkles" width="14"></iconify-icon>
         </button>
       </div>
 
       <!-- SIMULATED APP INTERFACE - NOW FULLY FUNCTIONAL -->
-      <div id="simulated-app-frame" class="reveal-element w-full mt-32 relative perspective-1000">
+      <div id="simulated-app-frame" class="reveal-element w-full mt-8 md:mt-32 relative perspective-1000">
         <div
           class="relative w-full aspect-[3/2] bg-[#0A0A0A] rounded-2xl border border-white/10 shadow-2xl overflow-hidden flex flex-col transform rotate-x-12 transition-transform duration-700 hover:rotate-0 group">
           <!-- App Header -->
           <!-- App Header -->
-          <div class="h-12 border-b border-white/5 flex items-center px-4 justify-center bg-[#0F0F0F] relative">
+          <div
+            class="hidden md:flex h-12 border-b border-white/5 items-center px-4 justify-center bg-[#0F0F0F] relative">
             <div class="flex gap-2 absolute left-4">
               <div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
               <div class="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
@@ -512,7 +514,7 @@
           <!-- App Body -->
           <div class="flex-1 flex overflow-hidden">
             <!-- Sidebar -->
-            <div class="w-16 border-r border-white/5 flex flex-col items-center py-4 gap-6 bg-[#0A0A0A]">
+            <div class="hidden md:flex w-16 border-r border-white/5 flex-col items-center py-4 gap-6 bg-[#0A0A0A]">
               <button
                 class="sidebar-btn p-2 rounded-lg bg-indigo-500/10 text-indigo-400 transition-all hover:bg-indigo-500/20"
                 data-tab="search">
@@ -559,11 +561,11 @@
           <iconify-icon icon="simple-icons:tiktok" width="28" class="text-white"></iconify-icon>
           <iconify-icon icon="simple-icons:youtube" width="32" class="text-white"></iconify-icon>
           <iconify-icon icon="simple-icons:instagram" width="28" class="text-white"></iconify-icon>
-          <iconify-icon icon="simple-icons:reddit" width="32" class="text-white"></iconify-icon>
-          <iconify-icon icon="simple-icons:linkedin" width="28" class="text-white"></iconify-icon>
-          <iconify-icon icon="simple-icons:x" width="24" class="text-white"></iconify-icon>
+          <iconify-icon icon="simple-icons:reddit" width="32" class="text-white hidden md:block"></iconify-icon>
+          <iconify-icon icon="simple-icons:linkedin" width="28" class="text-white hidden md:block"></iconify-icon>
+          <iconify-icon icon="simple-icons:x" width="24" class="text-white hidden md:block"></iconify-icon>
           <iconify-icon icon="simple-icons:pinterest" width="28" class="text-white"></iconify-icon>
-          <iconify-icon icon="simple-icons:snapchat" width="28" class="text-white"></iconify-icon>
+          <iconify-icon icon="simple-icons:snapchat" width="28" class="text-white hidden md:block"></iconify-icon>
         </div>
       </div>
     </section>
@@ -890,7 +892,7 @@
           <!-- CTA Button (Moved here) -->
           <div class="mt-20">
             <button id="cta-waitlist-btn"
-              class="glass-button glass-button-interactive px-12 py-4 text-[0.95rem] font-medium font-nav gap-2">
+              class="glass-button glass-button-interactive px-7 md:px-12 py-4 text-[0.95rem] font-medium font-nav gap-2">
               GET STARTED
               <iconify-icon icon="lucide:sparkles" width="14"></iconify-icon>
             </button>
@@ -941,12 +943,8 @@
           <div class="step-image min-h-screen flex items-center justify-center p-6" data-step="3">
             <div
               class="h-80 w-full bg-[#080808] border border-white/5 rounded-2xl flex items-center justify-center relative overflow-hidden">
-              <div class="text-center">
-                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-black mb-4">
-                  <iconify-icon icon="lucide:check" class="text-xl"></iconify-icon>
-                </div>
-                <p class="text-sm font-medium text-white">Ready for production</p>
-              </div>
+              <video id="step3-video" src="public/conthunt%20agent%20-%20zoom.mp4"
+                class="absolute inset-0 w-full h-full object-cover" muted loop playsinline></video>
             </div>
           </div>
         </div>
@@ -1389,15 +1387,18 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const target = document.getElementById('changing-word');
+
+      target.innerText = 'marketing';
+
       const words = [
-        'marketing strategy',
+        'marketing',
         'ecommerce',
         'content idea',
         'brand growth'
       ];
       let wordIndex = 0;
       const chars =
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+        'abcdefghijklmnopqrstuvwxyz';
 
       function scramble(newText) {
         let iteration = 0;
@@ -1902,6 +1903,30 @@
           }
         });
       }
+    });
+  </script>
+  <!-- Step 3 Video Playback Control Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const video = document.getElementById('step3-video');
+      if (!video) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            video.currentTime = 0;
+            video.play().catch(error => {
+              console.log("Video playback failed:", error);
+            });
+          } else {
+            video.pause();
+          }
+        });
+      }, {
+        threshold: 0.2 // Trigger when at least 20% of the video is visible
+      });
+
+      observer.observe(video);
     });
   </script>
 </body>
