@@ -441,6 +441,12 @@
       mask-composite: exclude;
       pointer-events: none;
     }
+
+    /* Pricing month text line-height */
+    .pricing-month {
+      line-height: 0.8rem !important;
+      font-size: 1rem !important;
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -1237,7 +1243,7 @@
               <span class="text-sm font-medium text-neutral-400">Free</span>
               <div class="text-4xl font-medium text-white mt-2">
                 $0
-                <span class="text-base text-neutral-500 font-normal">/mo</span>
+                <span class="text-base text-neutral-500 font-normal pricing-month">/mo</span>
               </div>
             </div>
             <ul class="space-y-3 mb-8 flex-1">
@@ -1276,13 +1282,14 @@
             <div class="mb-4">
               <span class="text-sm font-medium text-neutral-400">Creator</span>
               <div class="flex items-end gap-1 mt-2">
+                <span class="text-2xl font-medium text-neutral-500 line-through mr-1">$49</span>
                 <span class="text-4xl font-medium text-white">$</span>
-                <div class="text-4xl font-medium text-white price-value" id="creator-price" data-monthly="29"
+                <div class="text-4xl font-medium text-white price-value mr-2" id="creator-price" data-monthly="29"
                   data-yearly="25">
                   29
                 </div>
                 <div class="flex flex-col mb-1 text-left">
-                  <span class="text-base text-neutral-500 font-normal">/mo</span>
+                  <span class="text-base text-neutral-500 font-normal pricing-month">/mo</span>
                   <span
                     class="text-[10px] text-neutral-600 font-medium uppercase tracking-wide billing-period-text">Billed
                     Monthly</span>
@@ -1333,13 +1340,14 @@
             <div class="mb-4">
               <span class="text-sm font-medium text-[#CECECE]">Pro Research</span>
               <div class="flex items-end gap-1 mt-2">
+                <span class="text-2xl font-medium text-neutral-600 line-through mr-1">$139</span>
                 <span class="text-4xl font-medium text-white">$</span>
-                <div class="text-4xl font-medium text-white price-value" id="pro-price" data-monthly="79"
+                <div class="text-4xl font-medium text-white price-value mr-2" id="pro-price" data-monthly="79"
                   data-yearly="63">
                   79
                 </div>
                 <div class="flex flex-col mb-1 text-left">
-                  <span class="text-base text-neutral-500 font-normal">/mo</span>
+                  <span class="text-base text-neutral-500 font-normal pricing-month">/mo</span>
                   <span
                     class="text-[10px] text-neutral-600 font-medium uppercase tracking-wide billing-period-text">Billed
                     Monthly</span>
@@ -1379,9 +1387,11 @@
                 <span>Deep Search Agent (new)</span>
               </li>
             </ul>
-            <button class="glass-button w-full py-3 text-[0.95rem] font-medium font-nav">
-              CHOOSE PLAN
-            </button>
+            <div class="w-full bg-[#070707] rounded-[69px]">
+              <button class="glass-button w-full py-3 text-[0.95rem] font-medium font-nav">
+                CHOOSE PLAN
+              </button>
+            </div>
           </div>
         </div>
 
